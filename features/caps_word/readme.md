@@ -4,7 +4,7 @@ This implementation is based on [Ga68’s multi-mode Caps Word](https://github.c
 ## Usage
 Include it as the following
 
-### <keymap>.c
+### keymap.c
 Include the `caps_word.h` if the CAPS_WORD feature is enabled
 ```
 #ifdef CAPS_WORD_ENABLE
