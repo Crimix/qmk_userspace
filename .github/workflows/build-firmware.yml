@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 jobs:  
     build:
       runs-on: ubuntu-latest
-      container: qmkfm/base_container
+      container: ghcr.io/qmk/qmk_cli
       strategy:
         fail-fast: false
         matrix:
@@ -28,22 +28,14 @@ jobs:
         with:
           path: users/${{ github.actor }}
 
-      - name: Build ${{ matrix.file }}
-        id: build
-        working-directory: users/${{ github.actor }}/
-        env:
-          kb: python3 -c "import json,sys;print(json.load(sys.stdin)['keyboard'])" < ${{ matrix.file }} | sed 's#/#_#g'
-        run: |
-          set -x
-          qmk compile ${{ matrix.file }}
-          echo "::set-output name=artifact-name::$(${{ env.kb }})_${{ github.actor }}"
+      - name: Build firmware
+        run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
 
       - name: Archive firmware
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: ${{ steps.build.outputs.artifact-name }}
-          retention-days: 5
+          name: ${{ matrix.file }}_${{ github.actor }}
           path: |
             *.hex
             *.bin
