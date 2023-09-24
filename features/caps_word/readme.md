@@ -8,7 +8,7 @@ Include it as the following
 Include the `caps_word.h` if the CAPS_WORD feature is enabled
 ```
 #ifdef CAPS_WORD_ENABLE
-    #include "features/common/caps_word.h"
+    #include "common/features/caps_word.h"
 #endif // CAPS_WORD_ENABLE
 ```
 
@@ -33,5 +33,5 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 Include the `caps_word.c` and enable CAPS_WORD
 ```
 CAPS_WORD_ENABLE    = yes
-  SRC += features/common/caps_word.c
+  SRC += common/features/caps_word.c
 ```
