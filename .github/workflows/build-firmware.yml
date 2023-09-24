@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - keychron/q5_pro/iso_encoder
+    paths-ignore:
+      - '**.md'
   workflow_dispatch:
 
 jobs:  
@@ -44,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v3
         continue-on-error: true
         with:
-          name: keychron/q5_pro/iso_encoder_${{ github.actor }}
+          name: keychron_q5_pro_iso_encoder
           path: |
             *.hex
             *.bin
