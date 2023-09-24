@@ -34,13 +34,11 @@ jobs:
         with:
           path: users/${{ github.actor }}
 
-      - name: Checkout common features
+      - name: Checkout common userspace
         uses: actions/checkout@v3
         with:
           ref: common
-          path: users/${{ github.actor }}
-          sparse-checkout: |
-            common
+          path: users/${{ github.actor }}/common
 
       - name: Build firmware
         run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
