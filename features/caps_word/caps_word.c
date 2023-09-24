@@ -11,6 +11,9 @@ bool caps_word_press_user(uint16_t keycode) {
             switch (keycode) {
                 // Keycodes that continue Caps Word, with shift applied.
                 case KC_A ... KC_Z:
+                case KC_LBRC: // Danish Å
+                case KC_SCLN: // Danish Æ
+                case KC_QUOT: // Danish Ø
                     add_weak_mods(MOD_BIT(KC_LSFT));  // Apply shift to next key.
                     return true;
 
@@ -65,7 +68,10 @@ bool caps_word_press_user(uint16_t keycode) {
                 // Keys that do NOT break the Caps Word state
                 case KC_A ... KC_Z:
                 case KC_1 ... KC_0:
-                case KC_DASH:
+                case KC_LBRC: // Danish Å
+                case KC_SCLN: // Danish Æ
+                case KC_QUOT: // Danish Ø
+                case KC_MINUS:
                 case KC_UNDERSCORE:
                 case KC_BACKSPACE:
                     // If we're continuing on after a space, then we need to "address" that prior
