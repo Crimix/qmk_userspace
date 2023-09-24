@@ -1,0 +1,47 @@
+name: Build QMK firmware
+on: [push, workflow_dispatch]
+
+jobs:  
+    build:
+    runs-on: ubuntu-latest
+    container: qmkfm/base_container
+    strategy:
+      fail-fast: false
+      matrix:
+        file:
+        - crimix.json
+
+    steps:
+
+    - name: Checkout QMK
+      uses: actions/checkout@v3
+      with:
+        repository: Keychron/qmk_firmware
+        ref: bluetooth_playground
+        submodules: recursive
+
+    - name: Checkout userspace
+      uses: actions/checkout@v3
+      with:
+        path: users/${{ github.actor }}
+
+    - name: Build ${{ matrix.file }}
+      id: build
+      working-directory: users/${{ github.actor }}/
+      env:
+        kb: python3 -c "import json,sys;print(json.load(sys.stdin)['keyboard'])" < ${{ matrix.file }} | sed 's#/#_#g'
+      run: |
+        set -x
+        qmk compile ${{ matrix.file }}
+        echo "::set-output name=artifact-name::$(${{ env.kb }})_${{ github.actor }}"
+
+    - name: Archive firmware
+      uses: actions/upload-artifact@v3
+      continue-on-error: true
+      with:
+        name: ${{ steps.build.outputs.artifact-name }}
+        retention-days: 5
+        path: |
+          *.hex
+          *.bin
+          *.uf2
