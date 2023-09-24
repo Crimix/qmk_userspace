@@ -1,5 +1,9 @@
 name: Build QMK firmware
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches:
+      - keychron/q5_pro/iso_encoder
+  workflow_dispatch:
 
 jobs:  
     build:
@@ -17,7 +21,7 @@ jobs:
         run : git config --global --add safe.directory '*'
 
       - name: Checkout QMK
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: Keychron/qmk_firmware
           ref: bluetooth_playground
@@ -32,7 +36,7 @@ jobs:
         run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
 
       - name: Archive firmware
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         continue-on-error: true
         with:
           name: ${{ matrix.file }}_${{ github.actor }}
