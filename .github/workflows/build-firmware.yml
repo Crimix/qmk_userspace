@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - keychron/q5_pro/iso_encoder
+    paths-ignore:
+      - '**.md'
   workflow_dispatch:
 
 jobs:  
