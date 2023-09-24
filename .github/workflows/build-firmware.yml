@@ -3,13 +3,13 @@ on: [push, workflow_dispatch]
 
 jobs:  
     build:
-    runs-on: ubuntu-latest
-    container: qmkfm/base_container
-    strategy:
-      fail-fast: false
-      matrix:
-        file:
-        - crimix.json
+      runs-on: ubuntu-latest
+      container: qmkfm/base_container
+      strategy:
+        fail-fast: false
+        matrix:
+          file:
+          - crimix.json
 
     steps:
 
