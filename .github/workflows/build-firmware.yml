@@ -19,10 +19,6 @@ jobs:
 
       steps:
 
-      - name: Lowercase Github actor name
-        run: |
-          echo "ACTOR=${GITHUB_ACTOR,,}" >>${GITHUB_ENV}
-
       - name: Disable git safe directory checks
         run : git config --global --add safe.directory '*'
 
@@ -36,16 +32,16 @@ jobs:
       - name: Checkout userspace
         uses: actions/checkout@v3
         with:
-          path: users/${{ actor }}
+          path: users/crimix
 
       - name: Checkout common userspace
         uses: actions/checkout@v3
         with:
           ref: common
-          path: users/${{ actor }}/common
+          path: users/crimix/common
 
       - name: Build firmware
-        run: qmk compile "users/${{ actor }}/${{ matrix.file }}"
+        run: qmk compile "users/crimix/${{ matrix.file }}"
 
       - name: Archive firmware
         uses: actions/upload-artifact@v3
