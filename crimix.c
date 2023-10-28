@@ -6,6 +6,15 @@
 #include "common/features/shortcuts/shortcuts.h"
 #include "sendstring_danish.h"
 
+enum custom_keycodes {
+    KC_CW_NORMAL_R = KC_CW_NORMAL,
+    KC_CW_COC_R,
+    KC_CW_CAC_R,
+    KC_CW_SNC_R,
+    KC_SC_INTELLIJ_RENAME_R,
+    KC_SC_INTELLIJ_GENERATE_R,
+};
+
 enum layers {
   MAC,
   MAC_FN,
