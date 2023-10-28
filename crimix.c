@@ -3,6 +3,8 @@
 #ifdef CAPS_WORD_ENABLE
     #include "common/features/caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
+#include "common/features/shortcuts/shortcuts.h"
+#include "sendstring_danish.h"
 
 enum layers {
   MAC,
@@ -13,8 +15,10 @@ enum layers {
 };
 
 enum {
-    TD_SPEC = 0 
+    SPECIAL_LAYER 
 };
+
+#define TD_SPEC TD(SPECIAL_LAYER)
 
 typedef enum {
     TD_NONE,
@@ -78,6 +82,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
     #endif // CAPS_WORD_ENABLE
+    
+    if (!process_record_shortcuts(keycode, record)) {
+        return false;
+    }
+
     switch (keycode) {
    
     }
