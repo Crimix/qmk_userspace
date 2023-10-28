@@ -101,7 +101,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
     if (layer == SPECIAL || layer == WIN_FN) {
         rgb_matrix_enable_noeeprom();
-        rgb_matrix_set_color_all(RGB_OFF);
         for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
             for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
                 uint8_t index = g_led_config.matrix_co[row][col];
@@ -122,8 +121,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 }
             }
         }
-    } else {
-        rgb_matrix_reload_from_eeprom();
     }
     return false;
 }
