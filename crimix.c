@@ -1,3 +1,4 @@
+#pragma once
 #include QMK_KEYBOARD_H
 
 #ifdef CAPS_WORD_ENABLE
