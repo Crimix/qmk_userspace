@@ -8,7 +8,8 @@
 #    define COMMON_START SAFE_RANGE
 #endif
 
-enum {
+// clang-format off
+enum custom_keycodes {
     KC_CW_NORMAL = COMMON_START,
     KC_CW_COC,
     KC_CW_CAC,
