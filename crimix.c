@@ -42,7 +42,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             rgb_matrix_enable_noeeprom();
             break;
         default: // for any other layers, or the default layer
-            rgb_matrix_reload_from_eeprom()
+            rgb_matrix_reload_from_eeprom();
             break;
     }
   return state;
@@ -50,7 +50,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 void keyboard_post_init_user() {
     rgb_matrix_disable_noeeprom();
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR)
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
     rgb_matrix_set_color_all(RGB_WHITE);
 }
 
