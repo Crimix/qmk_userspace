@@ -13,6 +13,7 @@ enum layers {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
     #ifdef CAPS_WORD_ENABLE
     if (!process_record_caps_word(keycode, record)) {
         return false;
@@ -22,11 +23,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case LT(WIN_FN, KC_F21):
         if (record->tap.count > 0) {
           if (record->event.pressed) {
-            if (IS_LAYER_ON(SPECIAL)) {
-                clear_oneshot_layer_state(ONESHOT_PRESSED);
-            } else {
-                set_oneshot_layer(SPECIAL, ONESHOT_START);
-            }
+            set_oneshot_layer(SPECIAL, ONESHOT_OTHER_KEY_PRESSED);
           }
           return false;
       }
@@ -42,16 +39,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
             rgb_matrix_enable_noeeprom();
             break;
         default: // for any other layers, or the default layer
-            rgb_matrix_reload_from_eeprom();
+            rgb_matrix_disable_noeeprom();
             break;
     }
   return state;
 }
 
-void keyboard_post_init_user() {
-    rgb_matrix_disable_noeeprom();
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_set_color_all(RGB_WHITE);
+void eeconfig_init_user() {
+    rgb_matrix_disable();
+    rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
+    rgb_matrix_sethsv(HSV_WHITE);
 }
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
