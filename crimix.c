@@ -4,6 +4,14 @@
     #include "common/features/caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
 
+enum layers {
+  MAC,
+  MAC_FN,
+  WIN,
+  WIN_FN,
+  SPECIAL
+};
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     #ifdef CAPS_WORD_ENABLE
     if (!process_record_caps_word(keycode, record)) {
@@ -11,13 +19,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     #endif // CAPS_WORD_ENABLE
     switch (keycode) {
-    case LT(3, KC_F21):
+    case LT(SPECIAL, KC_F21):
         if (record->tap.count > 0) {
           if (record->event.pressed) {
-            if (IS_LAYER_ON(4)) {
+            if (IS_LAYER_ON(SPECIAL)) {
                 clear_oneshot_layer_state(ONESHOT_PRESSED);
             } else {
-                set_oneshot_layer(4, ONESHOT_START);
+                set_oneshot_layer(SPECIAL, ONESHOT_START);
             }
           }
           return false;
@@ -29,20 +37,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
-        case 4:
-            rgb_matrix_enable();
+        case WIN_FN:
+        case SPECIAL:
+            rgb_matrix_enable_noeeprom();
             break;
         default: // for any other layers, or the default layer
-            rgb_matrix_disable();
-            rgb_matrix_set_color_all(0, 0, 0);
+            rgb_matrix_reload_from_eeprom()
             break;
     }
   return state;
 }
 
+void keyboard_post_init_user() {
+    rgb_matrix_disable_noeeprom();
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR)
+    rgb_matrix_set_color_all(RGB_WHITE);
+}
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
-    if (layer == 4 || layer == 3) {
+    if (layer == SPECIAL || layer == WIN_FN) {
         for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
             for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
                 uint8_t index = g_led_config.matrix_co[row][col];
@@ -50,9 +64,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 if (index >= led_min && index < led_max && index != NO_LED) {
                     uint16_t keycode = keymap_key_to_keycode(layer, (keypos_t){col,row});
                     if (keycode > KC_TRNS) {
-                        if (layer == 3) {
+                        if (layer == WIN_FN) {
                             rgb_matrix_set_color(index, RGB_ORANGE);
-                        } else if (layer == 4) {
+                        } else if (layer == SPECIAL) {
                             // if (keycode == ) {
                             //     rgb_matrix_set_color(index, RGB_BLUE);
                             // } else {
