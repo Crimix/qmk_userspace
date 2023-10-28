@@ -1,3 +1,5 @@
+#pragma once
+
 #ifdef KEYBOARD_keychron
 #    define COMMON_START USER_START
 #else
