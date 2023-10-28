@@ -15,10 +15,8 @@ enum layers {
 };
 
 enum {
-    SPECIAL_LAYER 
+    TD_SPEC 
 };
-
-#define TD_SPEC TD(SPECIAL_LAYER)
 
 typedef enum {
     TD_NONE,
