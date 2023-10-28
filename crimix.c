@@ -92,9 +92,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 void eeconfig_init_user() {
-    rgb_matrix_disable();
-    rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_sethsv(HSV_WHITE);
+    //rgb_matrix_disable();
+    //rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
+    //rgb_matrix_sethsv(HSV_WHITE);
 }
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
