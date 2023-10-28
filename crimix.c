@@ -31,10 +31,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     switch (get_highest_layer(state)) {
         case 4:
             rgb_matrix_set_color_all(0, 0, 255);
-            rgb_matrix_enable()
+            rgb_matrix_enable();
             break;
         default: // for any other layers, or the default layer
-            rgb_matrix_disable()
+            rgb_matrix_disable();
             rgb_matrix_set_color_all(0, 0, 0);
             break;
     }
