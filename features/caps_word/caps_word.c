@@ -170,7 +170,7 @@ bool process_record_caps_word(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             break;
-        case KC_CW_CAC:
+        case KC_CW_SNC:
             if (record->event.pressed) {
                 toggle_caps_word_space_sub(KC_UNDERSCORE);
                 return false;
