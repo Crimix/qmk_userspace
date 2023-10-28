@@ -19,7 +19,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     #endif // CAPS_WORD_ENABLE
     switch (keycode) {
-    case LT(SPECIAL, KC_F21):
+    case LT(WIN_FN, KC_F21):
         if (record->tap.count > 0) {
           if (record->event.pressed) {
             if (IS_LAYER_ON(SPECIAL)) {
