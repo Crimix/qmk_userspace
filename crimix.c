@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 
+#include "common/features/keys.h"
 #ifdef CAPS_WORD_ENABLE
     #include "common/features/caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
@@ -15,7 +16,7 @@ enum layers {
 };
 
 enum {
-    TD_SPEC 
+    TD_SPEC = 0
 };
 
 typedef enum {

@@ -310,7 +310,7 @@
           "KC_LALT",
           "KC_SPC",
           "KC_RALT",
-          "TD(TD_SPEC)",
+          "TD(0)",
           "KC_RCTL",
           "KC_LEFT",
           "KC_DOWN",
