@@ -1,5 +1,6 @@
 #pragma once
 #include QMK_KEYBOARD_H
+#include "../keys.h"
 
 typedef enum {
     CWMODE_NORMAL = 0,
@@ -9,14 +10,6 @@ typedef enum {
     CWMODE_SPACE_SUB       // will substitute space with a predefined character. can be used for
                            // kebab-case, snake_case, slash/case (path/to/file), or others.
 } caps_word_mode_t;
-
-enum {
-    KC_CW_NORMAL = NEW_SAFE_RANGE,
-    KC_CW_COC,
-    KC_CW_CAC,
-    KC_CW_SNC,
-	NEW_SAFE_RANGE
-};
 
 #define CAPS_WORD_MODE_DEFAULT CWMODE_NORMAL
 #define CAPS_WORD_SPACE_SUB_DEFAULT KC_SPACE

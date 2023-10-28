@@ -1,0 +1,7 @@
+enum {
+    KC_CW_NORMAL = NEW_SAFE_RANGE,
+    KC_CW_COC,
+    KC_CW_CAC,
+    KC_CW_SNC,
+	NEW_SAFE_RANGE_AFTER_COMMON
+};
