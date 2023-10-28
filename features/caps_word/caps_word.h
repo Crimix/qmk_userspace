@@ -10,6 +10,14 @@ typedef enum {
                            // kebab-case, snake_case, slash/case (path/to/file), or others.
 } caps_word_mode_t;
 
+enum {
+    KC_CW_NORMAL = NEW_SAFE_RANGE,
+    KC_CW_COC,
+    KC_CW_CAC,
+    KC_CW_SNC,
+	NEW_SAFE_RANGE
+};
+
 #define CAPS_WORD_MODE_DEFAULT CWMODE_NORMAL
 #define CAPS_WORD_SPACE_SUB_DEFAULT KC_SPACE
 
@@ -17,3 +25,5 @@ caps_word_mode_t g_caps_word_mode;
 
 bool toggle_caps_word_mode(caps_word_mode_t new_mode);
 bool toggle_caps_word_space_sub(uint16_t sub_keycode);
+
+bool process_record_caps_word(uint16_t keycode, keyrecord_t *record)

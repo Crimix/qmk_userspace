@@ -149,3 +149,33 @@ bool toggle_caps_word_space_sub(uint16_t sub_keycode) {
     g_caps_word_space_substitute = sub_keycode;
     return toggle_caps_word_mode(CWMODE_SPACE_SUB);
 }
+
+bool process_record_caps_word(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_CW_NORMAL:
+            if (record->event.pressed) {
+                toggle_caps_word_mode(CWMODE_CONSTANT_CASE);
+                return false;
+            }
+            break;
+        case KC_CW_COC:
+            if (record->event.pressed) {
+                toggle_caps_word_mode(CWMODE_CONSTANT_CASE);
+                return false;
+            }
+            break;
+        case KC_CW_CAC:
+            if (record->event.pressed) {
+                toggle_caps_word_mode(CWMODE_CAMEL_CASE);
+                return false;
+            }
+            break;
+        case KC_CW_CAC:
+            if (record->event.pressed) {
+                toggle_caps_word_space_sub(KC_UNDERSCORE);
+                return false;
+            }
+            break;
+    }
+    return true;
+}

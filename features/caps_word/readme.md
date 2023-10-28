@@ -12,19 +12,14 @@ Include the `caps_word.h` if the CAPS_WORD feature is enabled
 #endif // CAPS_WORD_ENABLE
 ```
 
-Handle the `CAPS_WORD` key to toggle caps word on using the different modes
+Handle the defined keys to toggle caps word on using the different modes
 ```
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-#ifdef CAPS_WORD_ENABLE
-        case CW_TOGG:
-            if (record->event.pressed) {
-                toggle_caps_word_mode(CAPS_WORD_MODE_DEFAULT);
-                return false;
-            }
-            break;
-#endif // CAPS_WORD_ENABLE
+    #ifdef CAPS_WORD_ENABLE
+    if (!process_record_caps_word(keycode, record)) {
+        return false;
     }
+    #endif // CAPS_WORD_ENABLE
     return true;
 }
 ```
