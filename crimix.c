@@ -1,6 +1,7 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+#include "common/features/keys.h"
 #ifdef CAPS_WORD_ENABLE
     #include "common/features/caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
