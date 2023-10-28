@@ -18,5 +18,4 @@ caps_word_mode_t g_caps_word_mode;
 
 bool toggle_caps_word_mode(caps_word_mode_t new_mode);
 bool toggle_caps_word_space_sub(uint16_t sub_keycode);
-
-bool process_record_caps_word(uint16_t keycode, keyrecord_t *record)
+bool process_record_caps_word(uint16_t keycode, keyrecord_t *record);
