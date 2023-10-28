@@ -1,6 +1,5 @@
 #pragma once
 #include QMK_KEYBOARD_H
-#include "../keys.h"
 
 typedef enum {
     CWMODE_NORMAL = 0,

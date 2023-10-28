@@ -1,7 +1,8 @@
 # Crimix's shortcuts
 
 ## Usage
-Include it as the following
+First follow the [General readme]{https://github.com/Crimix/qmk_userspace/tree/common/features/readme.md}
+Then include it as the following:
 
 ### keymap.c
 Include the `shortcuts.h`

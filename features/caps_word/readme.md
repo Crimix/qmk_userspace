@@ -2,7 +2,8 @@
 This implementation is based on [Ga68’s multi-mode Caps Word](https://github.com/Ga68/qmk_firmware/blob/my_layout/keyboards/sofle/keymaps/Ga68/caps_word.c)
 
 ## Usage
-Include it as the following
+First follow the [General readme]{https://github.com/Crimix/qmk_userspace/tree/common/features/readme.md}
+Then include it as the following:
 
 ### keymap.c
 Include the `caps_word.h` if the CAPS_WORD feature is enabled
