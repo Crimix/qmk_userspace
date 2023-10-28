@@ -12,8 +12,8 @@ enum layers {
   SPECIAL
 };
 
-enum tapdances {
-    SPECIAL_LAYER
+enum {
+    TD_SPEC = 0 
 };
 
 typedef enum {
@@ -68,7 +68,7 @@ void ql_reset(tap_dance_state_t *state, void *user_data) {
 
 // Associate our tap dance key with its functionality
 tap_dance_action_t tap_dance_actions[] = {
-    [SPECIAL_LAYER] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
+    [TD_SPEC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
 };
 
 
