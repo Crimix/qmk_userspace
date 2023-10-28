@@ -1,4 +1,5 @@
 SRC += crimix.c
+INTROSPECTION_KEYMAP_C = crimix.c
 
 VIA_ENABLE = yes
 BOOTMAGIC_ENABLE = yes
