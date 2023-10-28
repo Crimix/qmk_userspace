@@ -310,7 +310,7 @@
           "KC_LALT",
           "KC_SPC",
           "KC_RALT",
-          "LT(4, KC_F21)",
+          "TD(SPECIAL_LAYER)",
           "KC_RCTL",
           "KC_LEFT",
           "KC_DOWN",
