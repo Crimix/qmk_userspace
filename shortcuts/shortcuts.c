@@ -2,15 +2,15 @@
 
 bool process_record_shortcuts(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case KC_SC_INTELLIJ_RENAME:
+        case SC_IJ_R:
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_LSFT) SS_TAP(X_F6));
+                SEND_STRING(SS_DOWN(X_LSFT) SS_DOWN(X_F6) SS_UP(X_F6) SS_UP(X_LSFT));
                 return false;
             }
             break;
-        case KC_SC_INTELLIJ_GENERATE:
+        case SC_IJ_G:
             if (record->event.pressed) {
-                SEND_STRING(SS_TAP(X_LALT) SS_TAP(X_INS));
+                SEND_STRING(SS_DOWN(X_LALT) SS_DOWN(X_INS) SS_UP(X_INS) SS_UP(X_LALT));
                 return false;
             }
             break;

@@ -1,0 +1,24 @@
+#pragma once
+
+#include "keys.h"
+
+enum custom_layers {
+    WIN_FN = LAYER_START,
+    SPECIAL
+};
+
+enum tap_dances {
+    SPEC = 0
+};
+
+typedef enum {
+    TD_NONE,
+    TD_UNKNOWN,
+    TD_SINGLE_TAP,
+    TD_SINGLE_HOLD
+} td_state_t;
+
+typedef struct {
+    bool is_press_action;
+    td_state_t state;
+} td_tap_t;

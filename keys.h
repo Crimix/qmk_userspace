@@ -10,13 +10,16 @@
 #endif
 
 enum custom_keycodes {
-    KC_CW_NORMAL = COMMON_START,
-    KC_CW_COC,
-    KC_CW_CAC,
-    KC_CW_SNC,
-    KC_SC_INTELLIJ_RENAME,
-    KC_SC_INTELLIJ_GENERATE,
+    RGB_STOG = COMMON_START,
+    CW_NORMAL,
+    CW_COC,
+    CW_CAC,
+    CW_SNC,
+    SC_IJ_R,
+    SC_IJ_G,
     SAFE_RANGE_AFTER_COMMON
 };
 
 bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
+
+bool is_intellij_key(uint16_t keycode);
