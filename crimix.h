@@ -8,8 +8,9 @@ enum custom_layers {
     MAC_FN,
     WIN_BASE,
     WIN_FN,
-    SPECIAL
 };
+
+# define LAYER_START WIN_FN
 
 enum {
     SPEC = 0
