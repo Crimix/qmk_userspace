@@ -1,6 +1,6 @@
 #pragma once
 
-#include QMK_KEYBOARD_H
+#include "q5_pro.h"
 #include "features/keys.h"
 
 enum custom_layers {

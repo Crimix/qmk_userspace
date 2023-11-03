@@ -1,4 +1,3 @@
-#include QMK_KEYBOARD_H
 #include "crimix.h"
 #include "sendstring_danish.h"
 
