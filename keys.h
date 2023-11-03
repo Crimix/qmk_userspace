@@ -1,6 +1,6 @@
 #pragma once
 
-#include QMK_KEYBOARD_H
+#include "crimix.h"
 #include "keymap.h"
 
 #ifdef KEYBOARD_keychron
