@@ -3,12 +3,12 @@
 #include "keys.h"
 
 enum custom_layers {
-    WIN_FN = LAYER_START,
-    SPECIAL
+    COMMON_WIN_FN = LAYER_START,
+    COMMON_SPECIAL
 };
 
 enum tap_dances {
-    SPEC = 0
+    TD_SL = 0
 };
 
 typedef enum {
