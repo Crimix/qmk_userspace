@@ -1,5 +1,5 @@
 #include "rgb_layers.h"
-#include "special_layer.h"
+#include "../special_layer/special_layer.h"
 
 __attribute__((weak)) 
 layer_state_t layer_state_set_keymap(layer_state_t state) {
