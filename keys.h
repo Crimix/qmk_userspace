@@ -1,9 +1,10 @@
 #pragma once
 
+#include QMK_KEYBOARD_H
 #include "crimix.h"
 
 #ifdef KEYBOARD_keychron
-#    define COMMON_START USER_START
+#    define COMMON_START NEW_SAFE_RANGE
 #else
 #    define COMMON_START SAFE_RANGE
 #endif
