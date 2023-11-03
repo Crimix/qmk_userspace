@@ -1,5 +1,4 @@
 #include "caps_word.h"
-#include "keymap.h"
 
 caps_word_mode_t g_caps_word_mode = CAPS_WORD_MODE_DEFAULT;
 bool g_caps_word_last_key_was_space = false;

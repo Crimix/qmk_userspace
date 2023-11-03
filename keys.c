@@ -1,4 +1,5 @@
-#include "crimix.h"
+#include "keys.h"
+
 #ifdef CAPS_WORD_ENABLE
     #include "caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
