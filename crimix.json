@@ -1,0 +1,12 @@
+{
+  "keyboard": "keychron/q5_pro/iso_encoder",
+  "keymap": "crimix",
+  "layout": "LAYOUT_wrapper_103_iso",
+  "layers": [
+      [ "MAC_BASE_W" ],
+      [ "MAC_FN_W" ],
+      [ "WIN_BASE_W" ],
+      [ "WIN_FN_W" ],
+      [ "SPECIAL_W" ]
+  ]
+}
