@@ -3,7 +3,7 @@
 #include "q5_pro.h"
 #include "features/keys.h"
 
-enum custom_layers {
+enum user_layers {
     MAC_BASE,
     MAC_FN,
     WIN_BASE,
@@ -11,7 +11,3 @@ enum custom_layers {
 };
 
 # define LAYER_START WIN_FN
-
-enum {
-    SPEC = 0
-};
