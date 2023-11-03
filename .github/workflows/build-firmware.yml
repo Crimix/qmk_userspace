@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: common
-          path: users/crimix/
+          path: users/crimix/features
 
       - name: Build firmware
         run: qmk compile "users/crimix/${{ matrix.file }}"
