@@ -3,7 +3,11 @@
 #include "sendstring_danish.h"
 
 enum custom_layers {
-  SPECIAL
+    MAC,
+    MAC_FN,
+    WIN,
+    WIN_FN,
+    SPECIAL
 };
 
 enum {
