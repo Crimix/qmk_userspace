@@ -1,6 +1,6 @@
 #pragma once
 
-#include QMK_KEYBOARD_H
+#include "crimix.h"
 
 #ifdef KEYBOARD_keychron
 #    define COMMON_START USER_START
@@ -17,3 +17,5 @@ enum custom_keycodes {
     KC_SC_INTELLIJ_GENERATE,
     SAFE_RANGE_AFTER_COMMON
 };
+
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
