@@ -33,6 +33,9 @@ bool is_intellij_key(uint16_t keycode) {
     switch (keycode) {
         case SC_IJ_R:
         case SC_IJ_G:
+        case SC_IJ_T:
+        case SC_IJ_P:
+        case SC_IJ_C:
         return true;
     }
     return false;

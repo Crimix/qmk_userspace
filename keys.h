@@ -15,8 +15,12 @@ enum custom_keycodes {
     CW_COC,
     CW_CAC,
     CW_SNC,
-    SC_IJ_R,
-    SC_IJ_G,
+    SC_IJ_R, //IntellIJ Rename
+    SC_IJ_G, //IntellIJ Generate
+    SC_IJ_T, //IntellIJ Go to test
+    SC_IJ_P, //IntellIJ Git push
+    SC_IJ_C, //IntellIJ Git commit
+    SC_MVH,  //Mvh
     SAFE_RANGE_AFTER_COMMON
 };
 
