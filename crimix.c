@@ -1,9 +1,5 @@
 #include QMK_KEYBOARD_H
-
-#ifdef CAPS_WORD_ENABLE
-    #include "common/features/caps_word/caps_word.h"
-#endif // CAPS_WORD_ENABLE
-#include "common/features/shortcuts/shortcuts.h"
+#include "crimix.h"
 #include "sendstring_danish.h"
 
 enum layers {
@@ -72,24 +68,6 @@ void ql_reset(tap_dance_state_t *state, void *user_data) {
 tap_dance_action_t tap_dance_actions[] = {
     [TD_SPEC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, ql_finished, ql_reset)
 };
-
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    #ifdef CAPS_WORD_ENABLE
-    if (!process_record_caps_word(keycode, record)) {
-        return false;
-    }
-    #endif // CAPS_WORD_ENABLE
-    
-    if (!process_record_shortcuts(keycode, record)) {
-        return false;
-    }
-
-    switch (keycode) {
-   
-    }
-    return true;
-}
 
 void eeconfig_init_user(void) {
     rgb_matrix_disable();
