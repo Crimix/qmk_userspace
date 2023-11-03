@@ -1,5 +1,7 @@
 #pragma once
 
+#include "crimix.h"
+
 #define LAYOUT_wrapper_103_iso(...) LAYOUT_103_iso(__VA_ARGS__)
 
 #define MAC_BASE_W \

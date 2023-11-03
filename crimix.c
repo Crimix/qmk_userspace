@@ -2,19 +2,6 @@
 #include "crimix.h"
 #include "sendstring_danish.h"
 
-enum custom_layers {
-    MAC_BASE,
-    MAC_FN,
-    WIN_BASE,
-    WIN_FN,
-    SPECIAL
-};
-
-enum {
-    SPEC = 0
-};
-
-
 /* const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [MAC_BASE] = LAYOUT_103_iso(
         KC_ESC,             KC_BRID,  KC_BRIU,  KC_MCTL,  KC_LPAD,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,    KC_VOLD,  KC_VOLU,            KC_DEL,   KC_F13,   KC_F14,   KC_F15,     KC_MUTE,
