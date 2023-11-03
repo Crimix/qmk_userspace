@@ -1,8 +1,8 @@
 #include "crimix.h"
 #ifdef CAPS_WORD_ENABLE
-    #include "common/features/caps_word/caps_word.h"
+    #include "caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
-#include "common/features/shortcuts/shortcuts.h"
+#include "shortcuts/shortcuts.h"
 
 
 __attribute__((weak)) 
