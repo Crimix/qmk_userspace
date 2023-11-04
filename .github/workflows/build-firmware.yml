@@ -1,4 +1,4 @@
-name: Build QMK firmware
+name: Build Q5 Pro ISO Enconder (Crimix)
 on:
   push:
     branches:
