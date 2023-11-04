@@ -2,7 +2,7 @@
 
 caps_word_mode_t g_caps_word_mode = CAPS_WORD_MODE_DEFAULT;
 bool g_caps_word_last_key_was_space = false;
-char  g_caps_word_space_substitute = CAPS_WORD_SPACE_SUB_DEFAULT;
+char*  g_caps_word_space_substitute = CAPS_WORD_SPACE_SUB_DEFAULT;
 
 bool caps_word_press_user(uint16_t keycode) {
     switch(g_caps_word_mode) {
@@ -144,7 +144,7 @@ bool toggle_caps_word_mode(caps_word_mode_t new_mode) {
 
 // Sets up caps word where every space is substituted with the provided char. This can be used
 // for kebab-case (dash/hyphen), snake_case (underscore), or others.
-bool toggle_caps_word_space_sub(char sub) {
+bool toggle_caps_word_space_sub(char* sub) {
     g_caps_word_space_substitute = sub;
     return toggle_caps_word_mode(CWMODE_SPACE_SUB);
 }
@@ -177,7 +177,7 @@ bool process_record_caps_word(uint16_t keycode, keyrecord_t *record) {
             break;
         case CW_SNC:
             if (record->event.pressed) {
-                toggle_caps_word_space_sub(KC_UNDERSCORE);
+                toggle_caps_word_space_sub("_");
                 return false;
             }
             break;
