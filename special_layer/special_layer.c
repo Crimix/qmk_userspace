@@ -20,11 +20,7 @@ void ql_finished(tap_dance_state_t *state, void *user_data) {
     ql_tap_state.state = cur_dance(state);
     switch (ql_tap_state.state) {
         case TD_SINGLE_TAP:
-            if (IS_LAYER_OFF(COMMON_SPECIAL)) {
-                set_oneshot_layer(COMMON_SPECIAL, ONESHOT_OTHER_KEY_PRESSED);
-            } else {
-                reset_oneshot_layer();
-            }
+            set_oneshot_layer(COMMON_SPECIAL, ONESHOT_OTHER_KEY_PRESSED);
             break;
         case TD_SINGLE_HOLD:
             layer_on(COMMON_WIN_FN);

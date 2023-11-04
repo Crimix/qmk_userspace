@@ -10,8 +10,7 @@
 #endif
 
 enum custom_keycodes {
-    RGB_STOG = COMMON_START,
-    CW_NORMAL,
+    CW_NORMAL = COMMON_START,
     CW_COC,
     CW_CAC,
     CW_SNC,

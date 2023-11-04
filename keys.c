@@ -21,10 +21,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     #endif // CAPS_WORD_ENABLE
     switch (keycode) {
-        case RGB_STOG:
-            rgb_matrix_reload_from_eeprom();
-            rgb_matrix_toggle();
-            return false;
     }
   return process_record_keymap(keycode, record);
 }
