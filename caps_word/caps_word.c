@@ -149,6 +149,12 @@ bool toggle_caps_word_space_sub(uint16_t sub_keycode) {
     return toggle_caps_word_mode(CWMODE_SPACE_SUB);
 }
 
+void clear_caps_word_mode() {
+    g_caps_word_mode = CAPS_WORD_MODE_DEFAULT;
+    g_caps_word_space_substitute = CAPS_WORD_SPACE_SUB_DEFAULT;
+    caps_word_off();
+}
+
 bool process_record_caps_word(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case CW_NORMAL:
@@ -172,6 +178,12 @@ bool process_record_caps_word(uint16_t keycode, keyrecord_t *record) {
         case CW_SNC:
             if (record->event.pressed) {
                 toggle_caps_word_space_sub(KC_UNDERSCORE);
+                return false;
+            }
+            break;
+        case CW_CLE:
+            if (record->event.pressed) {
+                clear_caps_word_mode();
                 return false;
             }
             break;

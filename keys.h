@@ -10,10 +10,11 @@
 #endif
 
 enum custom_keycodes {
-    CW_NORMAL = COMMON_START,
-    CW_COC,
-    CW_CAC,
-    CW_SNC,
+    CW_NORMAL = COMMON_START, //Caps Word normal
+    CW_COC, //Caps Word constant case
+    CW_CAC, //Caps Word camel case
+    CW_SNC, //Caps Word snake case
+    CW_CLE, //Caps Word clear
     SC_IJ_R, //IntellIJ Rename
     SC_IJ_G, //IntellIJ Generate
     SC_IJ_T, //IntellIJ Go to test
