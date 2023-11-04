@@ -1,6 +1,7 @@
 #pragma once
 
 #include "crimix.h"
+#include "features/special_layer/special_layer.h"
 
 #define LAYOUT_wrapper_103_iso(...) LAYOUT_103_iso(__VA_ARGS__)
 
