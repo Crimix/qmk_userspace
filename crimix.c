@@ -1,5 +1,4 @@
 #include "crimix.h"
-#include "sendstring_danish.h"
 
 void eeconfig_init_user(void) {
     rgb_matrix_disable();
