@@ -1,5 +1,11 @@
 #include "shortcuts.h"
 
+// this converts to string
+#define STR_(X) #X
+
+// this makes sure the argument is expanded before converting to string
+#define STR(X) STR_(X)
+
 bool process_record_shortcuts(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case SC_IJ_R:
@@ -34,7 +40,7 @@ bool process_record_shortcuts(uint16_t keycode, keyrecord_t *record) {
             break;
         case SC_MVH:
             if (record->event.pressed) {
-                SEND_STRING("Mvh\n" FIRST_NAME);
+                SEND_STRING("Mvh\n" STR(FIRST_NAME));
                 return false;
             }
             break;
