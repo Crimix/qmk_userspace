@@ -10,5 +10,3 @@ enum user_layers {
     WIN_BASE,
     WIN_FN,
 };
-
-# define LAYER_START WIN_FN
