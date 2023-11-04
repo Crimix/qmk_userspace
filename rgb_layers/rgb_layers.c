@@ -18,11 +18,11 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
 
 __attribute__((weak)) 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max) {
     return false;
 }
 
-bool rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t layer = get_highest_layer(layer_state);
     if (layer == COMMON_SPECIAL || layer == COMMON_WIN_FN) {
         for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
@@ -48,5 +48,5 @@ bool rgb_matrix_indicators_advanced_keymap(uint8_t led_min, uint8_t led_max) {
             }
         }
     }
-    return rgb_matrix_indicators_advanced_user(led_min, led_max);
+    return rgb_matrix_indicators_advanced_keymap(led_min, led_max);
 }
