@@ -1,6 +1,5 @@
 #pragma once
 
-#include "config.h"
 #include "keys.h"
 
 enum custom_layers {
