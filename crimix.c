@@ -2,7 +2,7 @@
 #include "sendstring_danish.h"
 #include "print.h"
 
-void eeconfig_init_user(void) {
+void eeconfig_init_user() {
     print("Set EECONFIG");
     rgb_matrix_disable();
     rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
