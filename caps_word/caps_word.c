@@ -149,7 +149,7 @@ bool toggle_caps_word_space_sub(uint16_t sub_keycode) {
     return toggle_caps_word_mode(CWMODE_SPACE_SUB);
 }
 
-void clear_caps_word_mode() {
+void clear_caps_word_mode(void) {
     g_caps_word_mode = CAPS_WORD_MODE_DEFAULT;
     g_caps_word_space_substitute = CAPS_WORD_SPACE_SUB_DEFAULT;
     caps_word_off();
