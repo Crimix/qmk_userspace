@@ -16,13 +16,13 @@ bool process_record_shortcuts(uint16_t keycode, keyrecord_t *record) {
             break;
         case SC_IJ_T:
             if (record->event.pressed) {
-                SEND_STRING(SS_DOWN(X_LCTL) SS_DOWN(X_LSFT) SS_DOWN(X_T) SS_UP(X_T) SS_DOWN(X_LSFT) SS_UP(X_LCTL));
+                SEND_STRING(SS_DOWN(X_LCTL) SS_DOWN(X_LSFT) SS_DOWN(X_T) SS_UP(X_T) SS_UP(X_LSFT) SS_UP(X_LCTL));
                 return false;
             }
             break;
         case SC_IJ_P:
             if (record->event.pressed) {
-                SEND_STRING(SS_DOWN(X_LCTL) SS_DOWN(X_LSFT) SS_DOWN(X_K) SS_UP(X_K) SS_DOWN(X_LSFT) SS_UP(X_LCTL));
+                SEND_STRING(SS_DOWN(X_LCTL) SS_DOWN(X_LSFT) SS_DOWN(X_K) SS_UP(X_K) SS_UP(X_LSFT) SS_UP(X_LCTL));
                 return false;
             }
             break;
