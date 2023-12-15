@@ -45,7 +45,7 @@ jobs:
         run: qmk compile "users/crimix/${{ matrix.file }}"
 
       - name: Archive firmware
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
           name: keychron_q5_pro_iso_encoder
