@@ -1,7 +1,7 @@
 {
   "keyboard": "keychron/k2_pro/iso/rgb",
   "keymap": "crimix",
-  "layout": "LAYOUT_wrapper_103_iso",
+  "layout": "LAYOUT_wrapper_85_iso",
   "layers": [
       [ "MAC_BASE_W" ],
       [ "MAC_FN_W" ],
