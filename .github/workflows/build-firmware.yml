@@ -2,8 +2,8 @@ name: Build Q5 Pro ISO Enconder (Crimix)
 on:
   push:
     branches:
-      - keychron/q5_pro/iso_encoder
-      - common
+      - 'keychron/q5_pro/iso_encoder'
+      - 'common'
     paths-ignore:
       - '**.md'
   workflow_dispatch:
