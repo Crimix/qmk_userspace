@@ -2,8 +2,8 @@ name: Build K2 Pro ISO (Crimix)
 on:
   push:
     branches:
-      - keychron/k2_pro/iso
-      - common
+      - 'keychron/k2_pro/iso'
+      - 'common'
     paths-ignore:
       - '**.md'
   workflow_dispatch:
