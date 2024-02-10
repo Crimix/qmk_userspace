@@ -1,8 +1,8 @@
-name: Build Q5 Pro ISO Enconder (Crimix)
+name: Build K2 Pro ISO (Crimix)
 on:
   push:
     branches:
-      - keychron/q5_pro/iso_encoder
+      - keychron/k2_pro/iso
       - common
     paths-ignore:
       - '**.md'
