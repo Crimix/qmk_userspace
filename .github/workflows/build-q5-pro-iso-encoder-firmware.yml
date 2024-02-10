@@ -1,0 +1,55 @@
+name: Build Q5 Pro ISO Enconder (Crimix)
+on:
+  push:
+    branches:
+      - keychron/q5_pro/iso_encoder
+      - common
+    paths-ignore:
+      - '**.md'
+  workflow_dispatch:
+
+jobs:  
+    build:
+      runs-on: ubuntu-latest
+      container: ghcr.io/qmk/qmk_cli
+      strategy:
+        fail-fast: false
+        matrix:
+          file:
+          - crimix.json
+
+      steps:
+
+      - name: Disable git safe directory checks
+        run : git config --global --add safe.directory '*'
+
+      - name: Checkout QMK
+        uses: actions/checkout@v4
+        with:
+          repository: Keychron/qmk_firmware
+          ref: bluetooth_playground
+          submodules: recursive
+
+      - name: Checkout userspace
+        uses: actions/checkout@v4
+        with:
+          path: users/crimix
+
+      - name: Checkout common userspace
+        uses: actions/checkout@v4
+        with:
+          ref: common
+          path: users/crimix/features
+
+      - name: Build firmware
+        run: qmk compile "users/crimix/${{ matrix.file }}"
+
+      - name: Archive firmware
+        uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: keychron_q5_pro_iso_encoder
+          path: |
+            *.hex
+            *.bin
+            *.uf2
