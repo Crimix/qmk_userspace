@@ -2,7 +2,7 @@
 
 #include "crimix.h"
 
-#define LAYOUT_wrapper_85_iso(...) LAYOUT_85_iso(__VA_ARGS__)
+#define LAYOUT_wrapper_85_iso(...) LAYOUT_iso_85(__VA_ARGS__)
 
 #define MAC_BASE_W \
 KC_ESC,   KC_BRID,  KC_BRIU,  KC_MCTL,  KC_LPAD,  RGB_VAD,  RGB_VAI,  KC_MPRV,  KC_MPLY,  KC_MNXT,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_SNAP,  KC_DEL,   RGB_MOD,  \
