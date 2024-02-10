@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: keychron_q5_pro_iso_encoder
+          name: keychron_k2_pro_iso_rgb
           path: |
             *.hex
             *.bin
