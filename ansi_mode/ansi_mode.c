@@ -23,10 +23,10 @@ bool ansi_mode_press_user(uint16_t keycode) {
             switch (keycode) {
                 case KC_NUBS:
                     if (is_shift()) {
-                        SEND_STRING(">");
+                        SEND_STRING(SS_TAP(X_DOT));
                         return false;
                     } else if (is_normal()) {
-                        SEND_STRING("<");
+                        SEND_STRING(SS_DOWN(X_LSFT) SS_TAP(X_COMM) SS_UP(X_LSFT));
                         return false;
                     }
                     return true;
@@ -170,6 +170,10 @@ bool ansi_mode_press_user(uint16_t keycode) {
         default:
             return true;
     }
+}
+
+bool is_ansi_mode(void) {
+    return g_ansi_mode_state == ANSI_MODE_ON;
 }
 
 void toggle_ansi_mode(ansi_mode_state_t new_mode) {

@@ -1,5 +1,6 @@
 #include "rgb_layers.h"
 #include "../special_layer/special_layer.h"
+#include "../ansi_mode/ansi_mode.h"
 
 bool is_layer_rendering = false;
 
@@ -90,6 +91,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             set_custom_indicator(KANA_LOCK_INDEX);
         }
 #endif
+        if (is_ansi_mode()) {
+            set_custom_indicator(0);
+        }
     }
 
     return rgb_matrix_indicators_advanced_keymap(led_min, led_max);
