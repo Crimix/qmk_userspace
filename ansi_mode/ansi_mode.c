@@ -3,15 +3,15 @@
 ansi_mode_state_t g_ansi_mode_state = ANSI_MODE_STATE_DEFAULT;
 
 
-bool is_shift() {
+bool is_shift(void) {
     return get_mods() == MOD_MASK_SHIFT;
 }
 
-bool is_alt_gr() {
+bool is_alt_gr(void) {
     return get_mods() == MOD_MASK_CA;
 }
 
-bool is_normal() {
+bool is_normal(void) {
     return get_mods() == 0;
 }
 
@@ -173,7 +173,7 @@ bool ansi_mode_press_user(uint16_t keycode) {
 }
 
 bool toggle_ansi_mode(ansi_mode_state_t new_mode) {
-    g_ansi_mode_state = new_mode
+    g_ansi_mode_state = new_mode;
 }
 
 ansi_mode_state_t get_new_mode(ansi_mode_state_t old_mode) {
