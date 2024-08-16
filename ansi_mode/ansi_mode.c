@@ -17,7 +17,7 @@ bool is_normal(void) {
 
 bool process_send_string(const char *string) {
     is_processing = true;
-    SEND_STRING(string)
+    SEND_STRING(string);
     is_processing = false;
 }
 
