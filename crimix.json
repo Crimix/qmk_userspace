@@ -1,7 +1,7 @@
 {
-  "keyboard": "keychron/q5_pro/iso_encoder",
+  "keyboard": "keychron/k1_pro/iso/rgb",
   "keymap": "crimix",
-  "layout": "LAYOUT_wrapper_103_iso",
+  "layout": "LAYOUT_wrapper_tkl_iso",
   "layers": [
       [ "MAC_BASE_W" ],
       [ "MAC_FN_W" ],

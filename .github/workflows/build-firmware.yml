@@ -1,8 +1,8 @@
-name: Build Q5 Pro ISO Enconder (Crimix)
+name: Build K1 Pro ISO (Crimix)
 on:
   push:
     branches:
-      - 'keychron/q5_pro/iso_encoder'
+      - 'keychron/k1_pro/iso/rgb'
       - 'common'
     paths-ignore:
       - '**.md'
@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Keychron/qmk_firmware
-          ref: bluetooth_playground
+          ref: wireless_playground
           submodules: recursive
 
       - name: Checkout userspace
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: keychron_q5_pro_iso_encoder
+          name: keychron_k1_pro_iso_rgb
           path: |
             *.hex
             *.bin
