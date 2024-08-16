@@ -20,6 +20,7 @@ enum custom_keycodes {
     SC_IJ_P, //IntellIJ Git push
     SC_IJ_C, //IntellIJ Git commit
     SC_MVH,  //Mvh
+    SC_ANSI, //Ansi mode
     SAFE_RANGE_AFTER_COMMON
 };
 

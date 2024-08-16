@@ -3,6 +3,7 @@
 #ifdef CAPS_WORD_ENABLE
     #include "caps_word/caps_word.h"
 #endif // CAPS_WORD_ENABLE
+#include "ansi_mode/ansi_mode.h"
 #include "shortcuts/shortcuts.h"
 
 
@@ -20,6 +21,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
     #endif // CAPS_WORD_ENABLE
+    if (!process_record_ansi_mode(keycode, record)) {
+        return false;
+    }
     switch (keycode) {
     }
   return process_record_keymap(keycode, record);
