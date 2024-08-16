@@ -92,7 +92,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         }
 #endif
         if (is_ansi_mode()) {
-            set_custom_indicator(0);
+            set_custom_indicator(28); //TODO Change to something else
         }
     }
 
