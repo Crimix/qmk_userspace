@@ -1,7 +1,7 @@
 #include "ansi_mode.h"
 
 ansi_mode_state_t g_ansi_mode_state = ANSI_MODE_STATE_DEFAULT;
-bool is_processing = false
+bool is_processing = false;
 
 bool is_shift(void) {
     return get_mods() == MOD_MASK_SHIFT;
