@@ -172,7 +172,7 @@ bool ansi_mode_press_user(uint16_t keycode) {
     }
 }
 
-bool toggle_ansi_mode(ansi_mode_state_t new_mode) {
+void toggle_ansi_mode(ansi_mode_state_t new_mode) {
     g_ansi_mode_state = new_mode;
 }
 

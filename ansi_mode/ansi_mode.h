@@ -11,5 +11,5 @@ typedef enum {
 
 ansi_mode_state_t g_ansi_mode_state;
 
-bool toggle_ansi_mode(ansi_mode_state_t state);
+void toggle_ansi_mode(ansi_mode_state_t state);
 bool process_record_ansi_mode(uint16_t keycode, keyrecord_t *record);
