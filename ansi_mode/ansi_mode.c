@@ -15,7 +15,7 @@ bool is_normal(void) {
     return get_mods() == 0;
 }
 
-bool process_send_string(const char *string) {
+void process_send_string(const char *string) {
     is_processing = true;
     SEND_STRING(string);
     is_processing = false;
