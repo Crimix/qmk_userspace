@@ -4,15 +4,15 @@ ansi_mode_state_t g_ansi_mode_state = ANSI_MODE_STATE_DEFAULT;
 
 
 bool is_shift() {
-    return get_mods() == MOD_MASK_SHIFT
+    return get_mods() == MOD_MASK_SHIFT;
 }
 
 bool is_alt_gr() {
-    return get_mods() == MOD_MASK_CA
+    return get_mods() == MOD_MASK_CA;
 }
 
 bool is_normal() {
-    return get_mods() == 0
+    return get_mods() == 0;
 }
 
 
