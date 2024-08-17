@@ -115,7 +115,7 @@ bool ansi_mode_press_user(uint16_t keycode) {
                     return true;
                 case KC_0:
                     if (is_shift()) {
-                        process_keycode(KS_EQL); //Send =
+                        process_keycode(KC_EQL); //Send =
                         return false;
                     } else if (is_alt_gr()) {
                         process_keycode(S(KC_RBRC)); //Send }
@@ -127,7 +127,7 @@ bool ansi_mode_press_user(uint16_t keycode) {
                         process_keycode(S(KC_SLSH)); //Send ?
                         return false;
                     } else if (is_normal()) {
-                        process_keycode(S(KS_EQL)); //Send +
+                        process_keycode(S(KC_EQL)); //Send +
                         return false;
                     }
                     return true;
