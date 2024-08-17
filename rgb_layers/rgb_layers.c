@@ -91,9 +91,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             set_custom_indicator(KANA_LOCK_INDEX);
         }
 #endif
+#if defined(ANSI_MODE_INDEX)
         if (is_ansi_mode()) {
-            set_custom_indicator(1); //TODO Change to something else
+            set_custom_indicator(ANSI_MODE_INDEX);
         }
+#endif
     }
 
     return rgb_matrix_indicators_advanced_keymap(led_min, led_max);

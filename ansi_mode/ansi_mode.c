@@ -15,12 +15,6 @@ bool is_normal(void) {
     return get_mods() == 0;
 }
 
-void process_send_string(const char *string) {
-    is_processing = true;
-    SEND_STRING(string);
-    is_processing = false;
-}
-
 void process_keycode(uint16_t code) {
     is_processing = true;
     uint8_t current_mods = get_mods();
@@ -33,7 +27,6 @@ void process_keycode(uint16_t code) {
     is_processing = false;
 }
 
-
 bool ansi_mode_press_user(uint16_t keycode) {
     if (is_processing) {
         return true;
@@ -44,142 +37,124 @@ bool ansi_mode_press_user(uint16_t keycode) {
             switch (keycode) {
                 case KC_NUBS:
                     if (is_shift()) {
-                        process_keycode(KC_DOT);
+                        process_keycode(S(KC_DOT)); //Send >
                         return false;
                     } else if (is_normal()) {
-                        process_keycode(S(KC_COMM));
+                        process_keycode(S(KC_COMM)); //Send <
                         return false;
                     }
                     return true;
                 case KC_COMM:
                     if (is_shift()) {
-                        process_send_string(";");
+                        process_keycode(KC_SCLN); //Send ;
                         return false;
                     }
                     return true;
                 case KC_DOT:
                     if (is_shift()) {
-                        process_send_string(":");
+                        process_keycode(S(KC_SCLN)); //Send :
                         return false;
                     }
                     return true;
                 case KC_SLSH:
                     if (is_shift()) {
-                        process_send_string("_");
+                        process_keycode(S(KC_MINS)); //Send _
                         return false;
                     } else if (is_normal()) {
-                        process_send_string("-");
+                        process_keycode(KC_MINS); //Send -
                         return false;
                     }
                     return true;
                 case KC_2:
                     if (is_shift()) {
-                        process_send_string("\"");
+                        process_keycode(S(KC_QUOT)) //Send "
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("@");
-                        return false;
-                    }
-                    return true;
-                case KC_3:
-                    if (is_shift()) {
-                        process_send_string("#");
-                        return false;
-                    } else if (is_alt_gr()) {
-                        process_send_string("£");
+                        process_keycode(S(KC_2)) //Send @
                         return false;
                     }
                     return true;
                 case KC_4:
-                    if (is_shift()) {
-                        process_send_string("¤");
-                        return false;
-                    } else if (is_alt_gr()) {
-                        process_send_string("$");
+                    if (is_alt_gr()) {
+                        process_keycode(S(KC_4)) //Send $
                         return false;
                     }
                     return true;
                 case KC_6:
                     if (is_shift()) {
-                        process_send_string("&");
+                        process_keycode(S(KC_7)) //Send &
                         return false;
                     }
                     return true;
                 case KC_7:
                     if (is_shift()) {
-                        process_send_string("/");
+                        process_keycode(KC_SLSH); //Send /
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("{");
+                        process_keycode(S(KC_LBRC)) //Send {
                         return false;
                     }
                     return true;
                 case KC_8:
                     if (is_shift()) {
-                        process_send_string("(");
+                        process_keycode(S(KC_9)) //Send (
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("[");
+                        process_keycode(KC_LBRC) //Send [
                         return false;
                     }
                     return true;
                 case KC_9:
                     if (is_shift()) {
-                        process_send_string(")");
+                        process_keycode(S(KC_0)) //Send )
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("]");
+                        process_keycode(KC_RBRC) //Send ]
                         return false;
                     }
                     return true;
                 case KC_0:
                     if (is_shift()) {
-                        process_send_string("=");
+                        process_keycode(KS_EQL) //Send =
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("}");
+                        process_keycode(S(KC_RBRC)) //Send }
                         return false;
                     }
                     return true;
                 case KC_MINS:
                     if (is_shift()) {
-                        process_send_string("?");
+                        process_keycode(S(KC_SLSH)) //Send ?
                         return false;
                     } else if (is_normal()) {
-                        process_send_string("+");
+                        process_keycode(S(KS_EQL)) //Send +
                         return false;
                     }
                     return true;
                 case KC_EQL:
                     if (is_shift()) {
-                        process_send_string("`");
+                        process_keycode(KC_GRV) //Send `
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("|");
-                        return false;
-                    } else if (is_normal()) {
-                        process_send_string("´");
+                        process_keycode(S(KC_BSLS)) //Send |
                         return false;
                     }
                     return true;
                 case KC_RBRC:
                     if (is_shift()) {
-                        process_send_string("^");
+                        process_keycode(S(KC_6)) //Send ^
                         return false;
                     } else if (is_alt_gr()) {
-                        process_send_string("~");
-                        return false;
-                    } else if (is_normal()) {
-                        process_send_string("¨");
+                        process_keycode(S(KC_GRV)) //Send ~
                         return false;
                     }
                     return true;
                 case KC_NUHS:
                     if (is_shift()) {
-                        process_send_string("*");
+                        process_keycode(KC_8) //Send *
                         return false;
                     } else if (is_normal()) {
-                        process_send_string("¨");
+                        process_keycode(KC_QUOT) //Send '
                         return false;
                     }
                     return true;
