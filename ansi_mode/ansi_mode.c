@@ -4,11 +4,11 @@ ansi_mode_state_t g_ansi_mode_state = ANSI_MODE_STATE_DEFAULT;
 bool is_processing = false;
 
 bool is_shift(void) {
-    return get_mods() == MOD_MASK_SHIFT;
+    return get_mods() & MOD_MASK_SHIFT;
 }
 
 bool is_alt_gr(void) {
-    return get_mods() == MOD_MASK_CA;
+    return get_mods() & MOD_MASK_CA;
 }
 
 bool is_normal(void) {
@@ -18,6 +18,18 @@ bool is_normal(void) {
 void process_send_string(const char *string) {
     is_processing = true;
     SEND_STRING(string);
+    is_processing = false;
+}
+
+void process_keycode(uint16_t code) {
+    is_processing = true;
+    uint8_t current_mods = get_mods();
+    clear_keyboard();
+
+    register_code16(code);
+    unregister_code16(code);
+
+    set_mods(current_mods);
     is_processing = false;
 }
 
@@ -32,10 +44,10 @@ bool ansi_mode_press_user(uint16_t keycode) {
             switch (keycode) {
                 case KC_NUBS:
                     if (is_shift()) {
-                        process_send_string(SS_TAP(X_DOT));
+                        process_keycode(KC_DOT);
                         return false;
                     } else if (is_normal()) {
-                        process_send_string(SS_DOWN(X_LSFT) SS_TAP(X_COMM) SS_UP(X_LSFT));
+                        process_keycode(S(KC_COMM));
                         return false;
                     }
                     return true;
@@ -207,5 +219,9 @@ bool process_record_ansi_mode(uint16_t keycode, keyrecord_t *record) {
             break;
     }
 
-    return ansi_mode_press_user(keycode);
+    if (record->event.pressed) {
+        return ansi_mode_press_user(keycode);
+    } else {
+        return true;
+    }
 }
