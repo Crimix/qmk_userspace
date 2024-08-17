@@ -2,6 +2,19 @@
 #include "../special_layer/special_layer.h"
 #include "../ansi_mode/ansi_mode.h"
 
+#ifdef LED_MATRIX_ENABLE
+#    define SET_ALL_LED_OFF() led_matrix_set_value_all(0)
+#    define SET_LED_OFF(idx) led_matrix_set_value(idx, 0)
+#    define SET_LED_ON(idx) led_matrix_set_value(idx, 255)
+#    define LED_DRIVER_DISABLE_TIME_RESET led_matrix_disable_time_reset
+#endif
+
+#ifdef RGB_MATRIX_ENABLE
+#    define SET_ALL_LED_OFF() rgb_matrix_set_color_all(0, 0, 0)
+#    define SET_LED_OFF(idx) rgb_matrix_set_color(idx, 0, 0, 0)
+#    define SET_LED_ON(idx) rgb_matrix_set_color(idx, 255, 255, 255)
+#endif
+
 bool is_layer_rendering = false;
 
 __attribute__((weak)) 
@@ -106,56 +119,48 @@ bool led_update_keymap(led_t led_state) {
     return true;
 }
 
-void set_led_indicator(uint8_t index) {
-    rgb_matrix_set_color(index, RGB_WHITE);
-}
-
-void set_led_indicator_off(uint8_t index) {
-    rgb_matrix_set_color(index, RGB_OFF);
-}
-
 #if !defined(KC_BLUETOOTH_ENABLE) && !defined(LK_WIRELESS_ENABLE)
 bool led_update_user(led_t led_state) {
 #if defined(CAPS_LOCK_INDEX)
     if (host_keyboard_led_state().caps_lock) {
-        set_led_indicator(CAPS_LOCK_INDEX);
+        SET_LED_ON(CAPS_LOCK_INDEX);
     } else {
-        set_led_indicator_off(CAPS_LOCK_INDEX);
+        SET_LED_OFF(CAPS_LOCK_INDEX);
     }
 #endif
 #if defined(NUM_LOCK_INDEX)
     if (host_keyboard_led_state().num_lock) {
-        set_led_indicator(NUM_LOCK_INDEX);
+        SET_LED_ON(NUM_LOCK_INDEX);
     } else {
-        set_led_indicator_off(NUM_LOCK_INDEX);
+        SET_LED_OFF(NUM_LOCK_INDEX);
     }
 #endif
 #if defined(SCROLL_LOCK_INDEX)
     if (host_keyboard_led_state().scroll_lock) {
-        set_led_indicator(SCROLL_LOCK_INDEX);
+        SET_LED_ON(SCROLL_LOCK_INDEX);
     } else {
-        set_led_indicator_off(SCROLL_LOCK_INDEX);
+        SET_LED_OFF(SCROLL_LOCK_INDEX);
     }
 #endif
 #if defined(COMPOSE_LOCK_INDEX)
     if (host_keyboard_led_state().compose) {
-        set_led_indicator(COMPOSE_LOCK_INDEX);
+        SET_LED_ON(COMPOSE_LOCK_INDEX);
     } else {
-        set_led_indicator_off(COMPOSE_LOCK_INDEX);
+        SET_LED_OFF(COMPOSE_LOCK_INDEX);
     }
 #endif
 #if defined(KANA_LOCK_INDEX)
     if (host_keyboard_led_state().kana) {
-        set_led_indicator(KANA_LOCK_INDEX);
+        SET_LED_ON(KANA_LOCK_INDEX);
     } else {
-        set_led_indicator_off(KANA_LOCK_INDEX);
+        SET_LED_OFF(KANA_LOCK_INDEX);
     }
 #endif
 #if defined(ANSI_MODE_INDEX)
     if (is_ansi_mode()) {
-        set_led_indicator(ANSI_MODE_INDEX);
+        SET_LED_ON(ANSI_MODE_INDEX);
     } else {
-        set_led_indicator_off(ANSI_MODE_INDEX);
+        SET_LED_OFF(ANSI_MODE_INDEX);
     }
 #endif
 
