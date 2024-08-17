@@ -102,7 +102,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 }
 
 __attribute__((weak)) 
-bool led_indicators_keymap() {
+bool led_indicators_keymap(void) {
     return true;
 }
 
@@ -110,7 +110,7 @@ void set_led_indicator(uint8_t index) {
     rgb_matrix_set_color(index, RGB_WHITE);
 }
 
-bool led_indicators_user() {
+bool led_indicators_user(void) {
     if(rgb_matrix_is_enabled()) {
         return true;
     }
