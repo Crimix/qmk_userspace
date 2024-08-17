@@ -67,22 +67,22 @@ bool ansi_mode_press_user(uint16_t keycode) {
                     return true;
                 case KC_2:
                     if (is_shift()) {
-                        process_keycode(S(KC_QUOT)) //Send "
+                        process_keycode(S(KC_QUOT)); //Send "
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(S(KC_2)) //Send @
+                        process_keycode(S(KC_2)); //Send @
                         return false;
                     }
                     return true;
                 case KC_4:
                     if (is_alt_gr()) {
-                        process_keycode(S(KC_4)) //Send $
+                        process_keycode(S(KC_4)); //Send $
                         return false;
                     }
                     return true;
                 case KC_6:
                     if (is_shift()) {
-                        process_keycode(S(KC_7)) //Send &
+                        process_keycode(S(KC_7)); //Send &
                         return false;
                     }
                     return true;
@@ -91,70 +91,70 @@ bool ansi_mode_press_user(uint16_t keycode) {
                         process_keycode(KC_SLSH); //Send /
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(S(KC_LBRC)) //Send {
+                        process_keycode(S(KC_LBRC)); //Send {
                         return false;
                     }
                     return true;
                 case KC_8:
                     if (is_shift()) {
-                        process_keycode(S(KC_9)) //Send (
+                        process_keycode(S(KC_9)); //Send (
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(KC_LBRC) //Send [
+                        process_keycode(KC_LBRC); //Send [
                         return false;
                     }
                     return true;
                 case KC_9:
                     if (is_shift()) {
-                        process_keycode(S(KC_0)) //Send )
+                        process_keycode(S(KC_0)); //Send )
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(KC_RBRC) //Send ]
+                        process_keycode(KC_RBRC); //Send ]
                         return false;
                     }
                     return true;
                 case KC_0:
                     if (is_shift()) {
-                        process_keycode(KS_EQL) //Send =
+                        process_keycode(KS_EQL); //Send =
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(S(KC_RBRC)) //Send }
+                        process_keycode(S(KC_RBRC)); //Send }
                         return false;
                     }
                     return true;
                 case KC_MINS:
                     if (is_shift()) {
-                        process_keycode(S(KC_SLSH)) //Send ?
+                        process_keycode(S(KC_SLSH)); //Send ?
                         return false;
                     } else if (is_normal()) {
-                        process_keycode(S(KS_EQL)) //Send +
+                        process_keycode(S(KS_EQL)); //Send +
                         return false;
                     }
                     return true;
                 case KC_EQL:
                     if (is_shift()) {
-                        process_keycode(KC_GRV) //Send `
+                        process_keycode(KC_GRV); //Send `
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(S(KC_BSLS)) //Send |
+                        process_keycode(S(KC_BSLS)); //Send |
                         return false;
                     }
                     return true;
                 case KC_RBRC:
                     if (is_shift()) {
-                        process_keycode(S(KC_6)) //Send ^
+                        process_keycode(S(KC_6)); //Send ^
                         return false;
                     } else if (is_alt_gr()) {
-                        process_keycode(S(KC_GRV)) //Send ~
+                        process_keycode(S(KC_GRV)); //Send ~
                         return false;
                     }
                     return true;
                 case KC_NUHS:
                     if (is_shift()) {
-                        process_keycode(KC_8) //Send *
+                        process_keycode(KC_8); //Send *
                         return false;
                     } else if (is_normal()) {
-                        process_keycode(KC_QUOT) //Send '
+                        process_keycode(KC_QUOT); //Send '
                         return false;
                     }
                     return true;
