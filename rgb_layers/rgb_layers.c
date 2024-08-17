@@ -36,6 +36,10 @@ __attribute__((weak))
 void set_custom_indicator(uint8_t index) {
 }
 
+void set_custom_indicator_off(uint8_t index) {
+    rgb_matrix_set_color(index, RGB_OFF);
+}
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if(!pre_rgb_layer_highlight(led_min, led_max)) {
         uint8_t layer = get_highest_layer(layer_state);
@@ -69,31 +73,43 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 #if defined(CAPS_LOCK_INDEX)
         if (host_keyboard_led_state().caps_lock) {
             set_custom_indicator(CAPS_LOCK_INDEX);
+        } else {
+            set_custom_indicator_off(CAPS_LOCK_INDEX);
         }
 #endif
 #if defined(NUM_LOCK_INDEX)
         if (host_keyboard_led_state().num_lock) {
             set_custom_indicator(NUM_LOCK_INDEX);
+        } else {
+            set_custom_indicator_off(NUM_LOCK_INDEX);
         }
 #endif
 #if defined(SCROLL_LOCK_INDEX)
         if (host_keyboard_led_state().scroll_lock) {
             set_custom_indicator(SCROLL_LOCK_INDEX);
+        } else {
+            set_custom_indicator_off(SCROLL_LOCK_INDEX);
         }
 #endif
 #if defined(COMPOSE_LOCK_INDEX)
         if (host_keyboard_led_state().compose) {
             set_custom_indicator(COMPOSE_LOCK_INDEX);
+        } else {
+            set_custom_indicator_off(COMPOSE_LOCK_INDEX);
         }
 #endif
 #if defined(KANA_LOCK_INDEX)
         if (host_keyboard_led_state().kana) {
             set_custom_indicator(KANA_LOCK_INDEX);
+        } else {
+            set_custom_indicator_off(KANA_LOCK_INDEX);
         }
 #endif
 #if defined(ANSI_MODE_INDEX)
         if (is_ansi_mode()) {
             set_custom_indicator(ANSI_MODE_INDEX);
+        } else {
+            set_custom_indicator_off(ANSI_MODE_INDEX);
         }
 #endif
     }
@@ -110,35 +126,51 @@ void set_led_indicator(uint8_t index) {
     rgb_matrix_set_color(index, RGB_WHITE);
 }
 
+void set_led_indicator_off(uint8_t index) {
+    rgb_matrix_set_color(index, RGB_OFF);
+}
+
 bool led_indicators_user(void) {
 #if defined(CAPS_LOCK_INDEX)
     if (host_keyboard_led_state().caps_lock) {
         set_led_indicator(CAPS_LOCK_INDEX);
+    } else {
+        set_led_indicator_off(CAPS_LOCK_INDEX);
     }
 #endif
 #if defined(NUM_LOCK_INDEX)
     if (host_keyboard_led_state().num_lock) {
         set_led_indicator(NUM_LOCK_INDEX);
+    } else {
+        set_led_indicator_off(NUM_LOCK_INDEX);
     }
 #endif
 #if defined(SCROLL_LOCK_INDEX)
     if (host_keyboard_led_state().scroll_lock) {
         set_led_indicator(SCROLL_LOCK_INDEX);
+    } else {
+        set_led_indicator_off(SCROLL_LOCK_INDEX);
     }
 #endif
 #if defined(COMPOSE_LOCK_INDEX)
     if (host_keyboard_led_state().compose) {
         set_led_indicator(COMPOSE_LOCK_INDEX);
+    } else {
+        set_led_indicator_off(COMPOSE_LOCK_INDEX);
     }
 #endif
 #if defined(KANA_LOCK_INDEX)
     if (host_keyboard_led_state().kana) {
         set_led_indicator(KANA_LOCK_INDEX);
+    } else {
+        set_led_indicator_off(KANA_LOCK_INDEX);
     }
 #endif
 #if defined(ANSI_MODE_INDEX)
     if (is_ansi_mode()) {
         set_led_indicator(ANSI_MODE_INDEX);
+    } else {
+        set_led_indicator_off(ANSI_MODE_INDEX);
     }
 #endif
 
