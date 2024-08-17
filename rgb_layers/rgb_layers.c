@@ -90,6 +90,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         if (host_keyboard_led_state().kana) {
             set_custom_indicator(KANA_LOCK_INDEX);
         }
+#endif
 #if defined(ANSI_MODE_INDEX)
         if (is_ansi_mode()) {
             set_custom_indicator(ANSI_MODE_INDEX);
