@@ -7,7 +7,7 @@
 #define RGB_MATRIX_DEFAULT_SAT 0
 
 #define ANSI_MODE_INDEX 40
-#define CAPS_LOCK_INDEX 50
+#define CAPS_LOCK_INDEX 49
 
 #ifndef __ASSEMBLER__ // Guard against use with non-C files
 #    include "wrappers.h"
