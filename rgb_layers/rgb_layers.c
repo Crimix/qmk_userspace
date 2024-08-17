@@ -111,10 +111,6 @@ void set_led_indicator(uint8_t index) {
 }
 
 bool led_indicators_user(void) {
-    if(rgb_matrix_is_enabled()) {
-        return true;
-    }
-
 #if defined(CAPS_LOCK_INDEX)
     if (host_keyboard_led_state().caps_lock) {
         set_led_indicator(CAPS_LOCK_INDEX);
