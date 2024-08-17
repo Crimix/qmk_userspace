@@ -4,11 +4,11 @@ ansi_mode_state_t g_ansi_mode_state = ANSI_MODE_STATE_DEFAULT;
 bool is_processing = false;
 
 bool is_shift(void) {
-    return get_mods() & MOD_MASK_SHIFT;
+    return get_mods() == MOD_BIT(KC_LSHIFT) || get_mods() == MOD_BIT(KC_RSHIFT);
 }
 
 bool is_alt_gr(void) {
-    return get_mods() & MOD_MASK_CA;
+    return get_mods() == MOD_BIT(KC_LCTL) && get_mods() == MOD_BIT(KC_RALT);
 }
 
 bool is_normal(void) {
