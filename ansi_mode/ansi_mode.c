@@ -8,7 +8,7 @@ bool is_shift(void) {
 }
 
 bool is_alt_gr(void) {
-    return (get_mods() & (MOD_MASK_CTRL | MOD_MASK_ALT)) == (MOD_MASK_CTRL | MOD_MASK_ALT);
+    return get_mods() & MOD_BIT(KC_RALT);
 }
 
 bool is_normal(void) {
