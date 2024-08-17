@@ -9,8 +9,5 @@ SRC += special_layer/special_layer.c
 ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
 SRC += rgb_layers/rgb_layers.c
 endif
-ifeq ($(strip $(LED_MATRIX_ENABLE)), yes)
-SRC += led_indicators/led_indicators.c
-endif
 
 VPATH += $(TOP_DIR)/users/crimix/$(FEATURES_DIR)

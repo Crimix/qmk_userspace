@@ -100,3 +100,51 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     return rgb_matrix_indicators_advanced_keymap(led_min, led_max);
 }
+
+__attribute__((weak)) 
+bool led_indicators_keymap() {
+    return true;
+}
+
+void set_led_indicator(uint8_t index) {
+    rgb_matrix_set_color(index, RGB_WHITE);
+}
+
+bool led_indicators_user() {
+    if(rgb_matrix_is_enabled()) {
+        return true;
+    }
+
+#if defined(CAPS_LOCK_INDEX)
+    if (host_keyboard_led_state().caps_lock) {
+        set_led_indicator(CAPS_LOCK_INDEX);
+    }
+#endif
+#if defined(NUM_LOCK_INDEX)
+    if (host_keyboard_led_state().num_lock) {
+        set_led_indicator(NUM_LOCK_INDEX);
+    }
+#endif
+#if defined(SCROLL_LOCK_INDEX)
+    if (host_keyboard_led_state().scroll_lock) {
+        set_led_indicator(SCROLL_LOCK_INDEX);
+    }
+#endif
+#if defined(COMPOSE_LOCK_INDEX)
+    if (host_keyboard_led_state().compose) {
+        set_led_indicator(COMPOSE_LOCK_INDEX);
+    }
+#endif
+#if defined(KANA_LOCK_INDEX)
+    if (host_keyboard_led_state().kana) {
+        set_led_indicator(KANA_LOCK_INDEX);
+    }
+#endif
+#if defined(ANSI_MODE_INDEX)
+    if (is_ansi_mode()) {
+        set_led_indicator(ANSI_MODE_INDEX);
+    }
+#endif
+
+    return led_indicators_keymap();
+}
