@@ -34,7 +34,7 @@ bool process_record_shortcuts(uint16_t keycode, keyrecord_t *record) {
             break;
         case SC_MVH:
             if (record->event.pressed) {
-                SEND_STRING("Mvh" SS_DOWN(X_LSFT) SS_TAP(X_ENT) FIRST_NAME);
+                SEND_STRING("Mvh" SS_DOWN(X_LSFT) SS_TAP(X_ENT) SS_UP(X_LSFT) FIRST_NAME);
                 return false;
             }
             break;
