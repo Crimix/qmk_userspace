@@ -19,10 +19,13 @@ void process_keycode(uint16_t code) {
     is_processing = true;
     uint8_t current_mods = get_mods();
     clear_keyboard();
-
+    wait_ms(10);
+    
     register_code16(code);
+    wait_ms(10);
     unregister_code16(code);
-
+    wait_ms(10);
+    
     set_mods(current_mods);
     is_processing = false;
 }
