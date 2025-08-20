@@ -24,19 +24,19 @@ jobs:
         run : git config --global --add safe.directory '*'
 
       - name: Checkout QMK
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: Keychron/qmk_firmware
           ref: wls_2025q1
           submodules: recursive
 
       - name: Checkout userspace
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: users/crimix
 
       - name: Checkout common userspace
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: common
           path: users/crimix/features
