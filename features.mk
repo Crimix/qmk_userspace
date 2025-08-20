@@ -6,6 +6,7 @@ endif
 SRC += ansi_mode/ansi_mode.c
 SRC += shortcuts/shortcuts.c
 SRC += special_layer/special_layer.c
+INTROSPECTION_KEYMAP_C += special_layer/special_layer.c
 ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
 SRC += rgb_layers/rgb_layers.c
 endif
