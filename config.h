@@ -1,3 +1,4 @@
+#undef DYNAMIC_KEYMAP_LAYER_COUNT //Do hack to undefine it first
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
 #define FIRST_NAME "Christoffer"
 #define LAYER_START 3 //WIN_FN
