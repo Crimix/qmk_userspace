@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: Keychron/qmk_firmware
-          ref: wireless_playground
+          ref: wls_2025q1
           submodules: recursive
 
       - name: Checkout userspace
