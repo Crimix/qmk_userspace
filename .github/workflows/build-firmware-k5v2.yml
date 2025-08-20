@@ -1,8 +1,8 @@
-name: Build K2 Pro ISO (Crimix)
+name: Build K5 V2 ISO (Crimix)
 on:
   push:
     branches:
-      - 'keychron/k2_pro/iso'
+      - 'keychron/k5v2/iso'
       - 'common'
     paths-ignore:
       - '**.md'
@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: keychron_k2_pro_iso_rgb
+          name: keychron_k5_v2_iso_rgb
           path: |
             *.hex
             *.bin
