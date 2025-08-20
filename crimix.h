@@ -1,5 +1,6 @@
 #pragma once
 
+#include "quantum.h"
 #include "keychron_common.h"
 #include "battery.h"
 #include "features/keys.h"
