@@ -1,5 +1,6 @@
 #pragma once
 
+#include "keychron_common.h"
 #include "battery.h"
 #include "features/keys.h"
 #include "features/special_layer/special_layer.h"
